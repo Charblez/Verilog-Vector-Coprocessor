@@ -1,5 +1,5 @@
 $date
-	Sun Dec 14 15:04:28 2025
+	Sun Dec 14 15:18:45 2025
 $end
 $version
 	Icarus Verilog
@@ -118,7 +118,7 @@ $var reg 32 r res [31:0] $end
 $var reg 1 s zero $end
 $upscope $end
 $upscope $end
-$scope begin $ivl_for_loop2 $end
+$scope begin $ivl_for_loop0 $end
 $var integer 32 t i [31:0] $end
 $upscope $end
 $upscope $end

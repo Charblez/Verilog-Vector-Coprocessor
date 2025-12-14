@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------------------------------
-// Filename: _tb.sv
+// Filename: VectorCoproc_tb.sv
 // Author: Charles Bassani
-// Description: 
+// Description: Testbench for VectorCoproc
 //----------------------------------------------------------------------------------------------------
 `timescale 1ns/1ps
 
@@ -134,19 +134,19 @@ initial begin
 
     #20;
     rst = 0;
-    //Load vectors
+    // Load vectors
     load_vector_reg(1, 10, 20, 30, 40); // $v1
     load_vector_reg(2, 1,  2,  3,  4);  // $v2
 
-    //Vector-Vector ADD
+    // Vector-Vector ADD
     $display("\nVector-Vector ADD ($v3 = $v1 + $v2)");
     exec_vec_op(ALU_ADD, 3, 1, 2);
 
-    //Vector-Scalar SUB
+    // Vector-Scalar SUB
     $display("\nVector-Scalar SUB ($v4 = $v1 - 5)");    
     exec_vec_op(ALU_SUB, 4, 1, 0, 1, 32'd5);
 
-    //Vector SLL
+    // Vector SLL
     $display("\nVector Shift Left ($v5 = $v2 << 1)");
     @(negedge clk);
     vec_we = 1; 
@@ -162,7 +162,7 @@ initial begin
         dut.vector_rf[5][3], dut.vector_rf[5][2], 
         dut.vector_rf[5][1], dut.vector_rf[5][0]);
 
-    //Zero Check
+    // Zero Check
     $display("\nZero Flag Check ($v6 = $v1 - $v1)");
     exec_vec_op(ALU_SUB, 6, 1, 1);
 
